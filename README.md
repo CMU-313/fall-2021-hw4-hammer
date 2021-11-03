@@ -80,3 +80,39 @@ Our retrained model performs better than the baseline model because we use more 
 For testing, our group wrote code that inputs data points with known results so testers can ensure that the API returns the correct result. In each test, the values for each field are inputted, with the student’s acceptance to graduate school as a known value. The API should return what the model is expected to return, and multiple tests will run on the API.
 
 Using known values, testers can make sure that the returned result is accurate in terms of applicant qualifications. The data is also applicable to the tests because they are realistic and do not include edge cases, corner cases, or invalid values. Therefore, the test cases used should ensure that the program returns the expected result and that it functions as intended.
+
+# Appendix
+## Graphs and diagrams
+
+![alt text](https://i2.paste.pics/21d878a9ee6eff739958bf0fe663c4b8.png)
+Fig. 1: Feature importance.
+
+![alt text](https://i2.paste.pics/e0253ee1daa9debde7575e5795de7141.png?trs=695aeed69c81b9f294d04ff00c2a914e7f790df810c7e2fc4c481b529c6586b6)
+Fig. 2: Class imbalance.
+
+## Unethical features
+`unethical_features = ['sex', 'address', 'Pstatus', 'Medu', 'Fedu', 'Mjob', 'Fjob', 'nursery', 'internet', 'romantic', 'famrel', 'guardian', 'goout', 'Dalc', 'health']`
+
+`sex`: using historical data that doesn’t exist in a vacuum can cause the model to reinforce admissions bias in terms of sex
+
+`address`: addresses may have some correlation with economic status. Historically individuals with higher economic status may be more likely to be admitted due to situational factors and we do not want the model to reinforce this behavior.
+
+`Pstatus`: parent’s cohabitation status may have some correlation with family dynamics and the stability of the candidate’s environment. We do not believe that this feature is useful in a merit-based decision making process.
+
+`Medu` and `Fedu`: education levels of parents can be used to reinforce generational wealth gaps instead of admitting students based on merit.
+
+`nursery`: this feature may have some correlation with economic status and thus is not merit-based. Features outside of the candidate’s control should not be used to admit candidates in the merit-based system.
+
+`internet`: this feature may have some correlation with economic status as well and we do not want to reinforce any historical biases in the admissions process.
+
+`romantic`: admission should not be largely based on personal or social lives (unless it directly contributes to success factors in graduate school like family support) and should instead focus on the academic careers of the candidates.
+
+`famrel`: admission should not be largely based on personal or social lives and should instead focus on the academic careers of the candidates.
+
+`guardian`: Admissions should be merit-based rather than focusing on the candidates’ upbringing.
+
+`goout`: admission should not be largely based on personal or social lives and should instead focus on the academic careers of the candidates.
+
+`Dalc`: admission should not be largely based on personal or social lives and should instead focus on the academic careers of the candidates.
+
+`health`: admission should not be largely based on personal or social lives and should instead focus on the academic careers of the candidates.
