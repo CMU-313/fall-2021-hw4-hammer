@@ -55,6 +55,10 @@ We chose not to use `G1`, `G2`, and `G3` because there is a very high correlatio
 
 Our retrained model performs better than the baseline model because we use more attributes that can help predict the successfulness of a student. We verified that our model is better than the baseline model because we performed a 3-fold stratified cross-validation. For each of the tests we found accuracy, precision, recall, and F1-score for the old and new model. The average precision (3-fold CV) is 0.576. Average recall (3-fold CV) is 0.512. Accuracy (3-fold CV) is 0.81. Therefore, for our models, aggregating the results of these three attributes on the new model, we got a total score of 1.898362, while the old model received a score of 1.883704. Since, the three attributes (precision, recall, and accuracy) have a max value of 1, the results of models get better as the average score gets closer to 3. Since our model’s score is closer to 3, we say our model is better than the baseline model.
 
+---
+
+# Impact of Metrics
+
 ## Impact of precision:
 
 We don’t want to admit students who are not qualified to get in. This would damage the caliber of the university over time.
