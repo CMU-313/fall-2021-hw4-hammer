@@ -53,7 +53,36 @@ We have decided to use all of the features to predict the successfulness of a st
   
 We chose not to use `G1`, `G2`, and `G3` because there is a very high correlation (80%+ correlation) of these variables. Additionally, including these variables in the model led to a 100% prediction rate which is too good to be true. This is because a student's past grade performance for previous semesters plays a huge part in a student's future score report (the `G3`) because a "good" student will continue to have good grades. Crucially, `G1` and `G2 `are grades when the student is already admitted into the school so this is data we would not typically have for students in the actual application process. The rest of these excluded features seem to be very personal to each applicant and would be some privacy violations like health or romantic relationships. Although overall health may help indicate the successfulness of a student, health could also include certain chronic disabilities that are very private to a person's life.
 
-Our retrained model performs better than the baseline model because we use more attributes that can help predict the successfulness of a student. We verified that our model is better than the baseline model because we performed a 3-fold stratified cross-validation. For each of the tests we found accuracy, precision, recall, and F1-score for the old and new model. The precision is ____. Recall is _____. Accuracy is ____. Therefore, for our models, aggregating the results of these three attributes on the new model, we got a total score of 1.898362, while the old model received a score of 1.883704. Since, the three attributes (precision, recall, and accuracy) have a max value of 1, the results of models get better as the average score gets closer to 3. Since our model’s score is closer to 3, we say our model is better than the baseline model.
+Our retrained model performs better than the baseline model because we use more attributes that can help predict the successfulness of a student. We verified that our model is better than the baseline model because we performed a 3-fold stratified cross-validation. For each of the tests we found accuracy, precision, recall, and F1-score for the old and new model. The average precision (3-fold CV) is 0.576. Average recall (3-fold CV) is 0.512. Accuracy (3-fold CV) is 0.81. Therefore, for our models, aggregating the results of these three attributes on the new model, we got a total score of 1.898362, while the old model received a score of 1.883704. Since, the three attributes (precision, recall, and accuracy) have a max value of 1, the results of models get better as the average score gets closer to 3. Since our model’s score is closer to 3, we say our model is better than the baseline model.
+
+## Impact of precision:
+
+We don’t want to admit students who are not qualified to get in. This would damage the caliber of the university over time.
+
+## Impact of recall:
+
+We don’t want to reject students who are qualified to get in. However, note that this happens all the time, and it is arguably less catastrophic than admitting students who are unqualified. We lose out on a great candidate, but we don’t potentially damage the reputation of the university.
+
+## Impact of accuracy:
+
+Accuracy is a great general metric, and tells us that our model is reasonably proficient as a predictor, in general. It does not tell us much about when our model performs well and when it performs poorly, but it serves as a one-size-fits-all metric we can glance at, shrug, and improve on, to start.
+
+---
+
+# New Model vs Old Model Metric Analysis
+
+Our new model’s average precision of ~0.576, calculated using k-fold stratified cross-validation (k = 3) indicates that it doesn’t handle false positives too well. However, we note that this level of precision was still greater than the old model’s average precision of ~0.563. 
+
+**What this tells us is that when our model predicts that a student is qualified, it is right 57.6% of the time. Further, it is 1.3% more right than our old model, when it predicts a student is qualified.**
+
+Our new model has an average recall of  ~0.512, calculated using k-fold stratified cross-validation (k = 3). However, we note that this level of precision was slightly worse than the old model’s average recall of ~0.530. 
+
+**What this tells us is that of all students who were actually qualified, our model correctly identified them as being qualified 53% of the time. Further, it correctly predicts correct qualification 1.8% of the time less than our old model, when a student is actually qualified.**
+
+Our new model’s average accuracy of 81%, calculated using k-fold stratified cross-validation (k = 3) indicates that it is pretty, well, accurate. Further, we observe that this level of accuracy was quite better than the old model’s average recall of 78.97%.
+
+**What this tells us is that our model correctly predicted students as being qualified or unqualified 81% of the time. Further, it is 2.03% more accurate than our old model, when it predicts a student is qualified.**
+
 
 # Deployment instructions
 `(from /dockerfile directory)`
