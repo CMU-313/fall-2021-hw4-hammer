@@ -31,6 +31,7 @@ def test_predict(client):
                     'studytime': 3,
                     'traveltime': 1})
     print(a.content)
+    assert(a.content != b'1\n')
 
     b = requests.get('http://localhost:5000/predict', params=
                     {'school': 0, 'age': 18, 'famsize': 0,
