@@ -87,6 +87,8 @@ Our new model’s average accuracy of 81%, calculated using k-fold stratified cr
 
 **What this tells us is that our model correctly predicted students as being qualified or unqualified 81% of the time. Further, it is 2.03% more accurate than our old model, when it predicts a student is qualified.**
 
+### Crucially, note that although we experienced a decrease in certain metrics, the original model is not even feasible to use in the real world. We would never have a student’s grades, {G1, G2, G3} in the real world, so using these features as predictors is not only silly but also nonsensical, and infeasible. As such, our model certainly has shown a marked improvement over the pre-existing “baseline” model.
+
 
 # Deployment instructions
 `(from /dockerfile directory)`
